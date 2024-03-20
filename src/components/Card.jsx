@@ -1,5 +1,6 @@
 import React from 'react'
-const Card = ({image, title, price, rating}) => {
+const Card = ({data}) => {
+  const {image,title,price,rating} = data;
   return (
     <div className='h-screen flex items-center justify-center'>
       <div className='border border-black/80 p-5'>
@@ -10,6 +11,11 @@ const Card = ({image, title, price, rating}) => {
             <p>{title}</p>
             <p>Price : {price}</p>
             <p>Rating : {rating}</p>
+            {data.keywords.map((i, index)=>(
+              <div key={index}>
+                <p>{i}</p>
+              </div>
+            ))}
         </div>
       </div>
     </div>
