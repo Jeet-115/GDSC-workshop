@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className='flex flex-row'>
         <Card image={table} title={"Table"} price={"$10"} rating={"5"} />
-        <Card image={table} title={"Table"} price={"$10"} rating={"5"} />
+        <Card image={table} title={"Table"} price={"$20"} rating={"4"} />
         <Card image={table} title={"Table"} price={"$10"} rating={"5"} />
         <Card image={table} title={"Table"} price={"$10"} rating={"5"} />
         <Card image={table} title={"Table"} price={"$10"} rating={"5"} />
