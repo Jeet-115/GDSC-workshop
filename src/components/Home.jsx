@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import table from '../assets/img/table.png'
 import cpu from '../assets/img/cpu.png'
 import purse from '../assets/img/purse.png'
 import jacket from '../assets/img/jacket.png'
 import Card from './Card'
+import Loading from './Loading'
 
 const data = [
   {
@@ -96,19 +97,26 @@ const data = [
   }
   ]
 const Home = () => {
+  const [isLoading, setIsLoading] = useState(false)
+  useEffect(()=>{
+    setIsLoading(true)
+    setTimeout(()=>{
+      setIsLoading(false)
+    }, 10000)
+  }, [])
+  
   return (
     <div className='flex flex-row flex-wrap gap-x-5'>
-      {data.map((item, idx )=>(
-          <div key={idx}>
-          <Card data={item}/>
-          <p>{idx}</p>
+      {isLoading ? <Loading/> : 
+        <div className='flex flex-row flex-wrap gap-x-5'>
+          {data.map((item, idx )=>(
+            <div key={idx}>
+             <Card data={item}/>
+             <p>{idx}</p>
+            </div>
+          ))}
         </div>
-      ))}
-        {/* <Card data={data} />
-        <Card image={table} title={"Table"} price={"$10"} rating={"5"} />
-        <Card image={cpu} title={"CPU"} price={"$20"} rating={"4"} />
-        <Card image={purse} title={"Purse"} price={"$10"} rating={"5"} />
-        <Card image={jacket} title={"Jacket"} price={"$10"} rating={"5"} /> */}
+      }
     </div>
   )
 }
