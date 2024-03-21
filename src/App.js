@@ -12,6 +12,7 @@ function App() {
   return (
     <div class='App '>
       {/* <Text/> */}
+      
       {/* <Profilee /> */}
       
       <BrowserRouter>
